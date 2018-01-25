@@ -13,28 +13,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         var counter = 0
-        relativeLayout {
-            val tv_counter = textView {
-                // Meaningless number
-                id = 11
-                text = "0"
-                // Float -> SP unit
-                textSize = 24f
-            }
-            button {
-                onClick {
-                    counter++
-                    tv_counter.text = counter.toString()
-                }
-                // Default wrap_content if u want another, use optional lparams
-            }.lparams {
-                // inline fun LayoutParams.below(view: View): Unit = addRule(BELOW, view.id)
-                // View.id should be needed
-                below(tv_counter)
-            }
-        // .style is deprecated
-        }.applyRecursively { view -> when(view) {
-            is TextView -> view.textColor = Color.RED
-        } }
+//        3. we can assign
+        val r1 = relativeLayout(theme = 0, init = {})
+
+        // 1. (init = RelativeLayout.() -> Unit?
+        // _RelativeLayout extends RelativeLayout
+        // Layouts.kt -> lparams extension function with bunch of _layout
+//        _RelativeLayout
+
+        // 2. Activity.relativeLayout
+        // relativeLayout -> cmd+b
+//        inline fun Activity.relativeLayout(theme: Int = 0): android.widget.RelativeLayout = relativeLayout(theme) {}
+//        first type of relateiveLayout(theme = 0) -> empty init function
+//        return ankoView(`$$Anko$Factories$Sdk15ViewGroup`.RELATIVE_LAYOUT, theme) { init() }
+//        it returns new ankoView Instance
+//        RELATIVELAYOUT -> cmd+b
+//        val RELATIVE_LAYOUT = { ctx: Context -> _RelativeLayout(ctx) }
+//        It's just the anonymous function returning relativeLayout
+//        Third init: T.() -> Unit): T
+
     }
 }
