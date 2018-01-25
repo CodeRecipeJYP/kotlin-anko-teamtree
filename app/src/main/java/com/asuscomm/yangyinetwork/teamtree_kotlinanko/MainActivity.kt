@@ -3,6 +3,7 @@ package com.asuscomm.yangyinetwork.teamtree_kotlinanko
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import org.jetbrains.anko.*
 import org.jetbrains.anko.custom.style
@@ -13,24 +14,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         var counter = 0
-//        3. we can assign
-        val r1 = relativeLayout(theme = 0, init = {})
 
-        // 1. (init = RelativeLayout.() -> Unit?
-        // _RelativeLayout extends RelativeLayout
-        // Layouts.kt -> lparams extension function with bunch of _layout
-//        _RelativeLayout
+        relativeLayout {
+//            Activity.ankoView <- extension Function
+            val button: Button = button { }
+//            1. return this.ankoView(`$$Anko$Factories$Sdk15View`.BUTTON, theme) { init() }
+            // in this scope "this" means ViewManager (== _RelativeLayout)
+//            inline fun <T : View> ViewManager.ankoView(factory: (ctx: Context) -> T, theme: Int, init: T.() -> Unit): T {
+//
 
-        // 2. Activity.relativeLayout
-        // relativeLayout -> cmd+b
-//        inline fun Activity.relativeLayout(theme: Int = 0): android.widget.RelativeLayout = relativeLayout(theme) {}
-//        first type of relateiveLayout(theme = 0) -> empty init function
-//        return ankoView(`$$Anko$Factories$Sdk15ViewGroup`.RELATIVE_LAYOUT, theme) { init() }
-//        it returns new ankoView Instance
-//        RELATIVELAYOUT -> cmd+b
-//        val RELATIVE_LAYOUT = { ctx: Context -> _RelativeLayout(ctx) }
-//        It's just the anonymous function returning relativeLayout
-//        Third init: T.() -> Unit): T
+//            2. val ctx = ...
+//            val view = factory(ctx)
+//            view.init()
+//            this.addView(this, view)
+//            // "this" means _RelatieLayout in this scope
+//            return view // <- TextView
+
+//           relativeLayout { val button: Button = button { } } <- This is init()
+            // Recursively val ctx = ...
+//            val view = factory(ctx)
+//            view.init() // <- it cause recursively to call higher-order function
+//            this.addView(this, view) // <- Attached on activity
+//            return view // <- return RelativeLayout itself
+
+        }
 
     }
 }
