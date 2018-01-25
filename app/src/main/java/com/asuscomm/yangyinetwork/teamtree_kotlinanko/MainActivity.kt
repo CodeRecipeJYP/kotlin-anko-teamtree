@@ -2,10 +2,7 @@ package com.asuscomm.yangyinetwork.teamtree_kotlinanko
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import org.jetbrains.anko.button
-import org.jetbrains.anko.onClick
-import org.jetbrains.anko.relativeLayout
-import org.jetbrains.anko.textView
+import org.jetbrains.anko.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +21,11 @@ class MainActivity : AppCompatActivity() {
                     counter++
                     tv_counter.text = counter.toString()
                 }
+                // Default wrap_content if u want another, use optional lparams
+            }.lparams {
+                // inline fun LayoutParams.below(view: View): Unit = addRule(BELOW, view.id)
+                // View.id should be needed
+                below(tv_counter)
             }
         }
     }
