@@ -1,8 +1,11 @@
 package com.asuscomm.yangyinetwork.teamtree_kotlinanko
 
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import org.jetbrains.anko.*
+import org.jetbrains.anko.custom.style
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +32,9 @@ class MainActivity : AppCompatActivity() {
                 // View.id should be needed
                 below(tv_counter)
             }
-        }
+        // .style is deprecated
+        }.applyRecursively { view -> when(view) {
+            is TextView -> view.textColor = Color.RED
+        } }
     }
 }
