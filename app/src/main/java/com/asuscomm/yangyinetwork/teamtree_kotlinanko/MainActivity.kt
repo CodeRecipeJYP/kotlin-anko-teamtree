@@ -12,6 +12,8 @@ class MainActivity : AppCompatActivity() {
         var counter = 0
         relativeLayout {
             val tv_counter = textView {
+                // Meaningless number
+                id = 11
                 text = "0"
                 // Float -> SP unit
                 textSize = 24f
