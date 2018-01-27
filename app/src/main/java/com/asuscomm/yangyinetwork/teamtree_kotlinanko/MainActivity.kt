@@ -22,6 +22,7 @@ fun View.getResIdForCard(card: Card): Int {
 
 class MainActivity : AppCompatActivity(), GameView {
     var deckView: DeckView? = null
+    var wastePileView: WastePileView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity(), GameView {
 
             linearLayout {
                 deckView = deckView().lparams(cardWidth, cardHeight)
-                imageView(imageResource = emptyPileDrawable).lparams(width = cardWidth, height = cardHeight)
+                wastePileView = wastePileView().lparams(cardWidth, cardHeight)
                 view().lparams(cardWidth, 0)
                 for (i in 0..3) {
                     imageView(imageResource = emptyPileDrawable).lparams(cardWidth, cardHeight)
@@ -53,5 +54,6 @@ class MainActivity : AppCompatActivity(), GameView {
 
     override fun update(gameModel: GameModel) {
         deckView!!.update()
+        wastePileView!!.update()
     }
 }

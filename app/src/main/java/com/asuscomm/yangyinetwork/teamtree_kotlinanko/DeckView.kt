@@ -31,4 +31,5 @@ class DeckView(context: Context) : ImageView(context) {
 
 // DeckView.() means extensionfunction of DeckView
 fun ViewManager.deckView(init: DeckView.() -> Unit = {}) =
+        // It means ctx
         ankoView({ DeckView(it) }, 0, init)
