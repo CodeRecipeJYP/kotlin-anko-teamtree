@@ -33,9 +33,7 @@ class MainActivity : AppCompatActivity(), GameView {
 
 
             linearLayout {
-                // Fails. Calling ankoView needed
-                DeckView(context)
-                imageView(imageResource = cardBackDrawable).lparams(width = cardWidth, height = cardHeight)
+                deckView().lparams(cardWidth, cardHeight)
                 imageView(imageResource = emptyPileDrawable).lparams(width = cardWidth, height = cardHeight)
                 view().lparams(cardWidth, 0)
                 for (i in 0..3) {
