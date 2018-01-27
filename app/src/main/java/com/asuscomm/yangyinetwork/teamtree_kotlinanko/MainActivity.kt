@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         verticalLayout {
             // LinearLayout orientation already set vertical
             linearLayout {
-                imageView (R.drawable.cardback_green5).lparams {
+                imageView (imageResource = R.drawable.cardback_green5).lparams {
                     width = cardWidth
                     height = cardHeight
                 }
