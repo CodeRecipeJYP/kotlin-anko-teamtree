@@ -13,31 +13,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var counter = 0
+        val cardWidth = (displayMetrics.widthPixels - dip(8)) / 7
+        val cardHeight:Int = (cardWidth * (190f / 140)).toInt()
 
-        relativeLayout {
-//            Activity.ankoView <- extension Function
-            val button: Button = button { }
-//            1. return this.ankoView(`$$Anko$Factories$Sdk15View`.BUTTON, theme) { init() }
-            // in this scope "this" means ViewManager (== RelativeLayout)
-//            inline fun <T : View> ViewManager.ankoView(factory: (ctx: Context) -> T, theme: Int, init: T.() -> Unit): T {
-//
+        verticalLayout {
+            // LinearLayout orientation already set vertical
+            linearLayout {
 
-//            2. val ctx = ...
-//            val view = factory(ctx)
-//            view.init()
-//            this.addView(this, view)
-//            // "this" means _RelatieLayout in this scope
-//            return view // <- TextView
+            }
+            linearLayout {
 
-//           relativeLayout { val button: Button = button { } } <- This is init()
-            // Recursively val ctx = ...
-//            val view = factory(ctx)
-//            view.init() // <- it cause recursively to call higher-order function
-//            this.addView(this, view) // <- Attached on activity
-//            return view // <- return RelativeLayout itself
-
+            }
         }
-
     }
 }
