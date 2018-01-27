@@ -3,11 +3,10 @@ package com.asuscomm.yangyinetwork.teamtree_kotlinanko
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import com.asuscomm.yangyinetwork.teamtree_kotlinanko.solitaire.GameModel
-import com.asuscomm.yangyinetwork.teamtree_kotlinanko.solitaire.GamePresenter
-import com.asuscomm.yangyinetwork.teamtree_kotlinanko.solitaire.GameView
+import com.asuscomm.yangyinetwork.teamtree_kotlinanko.solitaire.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.custom.ankoView
 import org.jetbrains.anko.custom.style
@@ -15,6 +14,11 @@ import org.jetbrains.anko.custom.style
 
 val cardBackDrawable = R.drawable.cardback_green5
 val emptyPileDrawable = R.drawable.cardback_blue1
+fun View.getResIdForCard(card: Card): Int {
+    val resourceName = "card${card.suit}${cardsMap[card.value]}".toLowerCase()
+    // We can get context from View.getContext
+    return context.resources.getIdentifier(resourceName, "drawable", context.packageName)
+}
 
 class MainActivity : AppCompatActivity(), GameView {
     var deckView: DeckView? = null
