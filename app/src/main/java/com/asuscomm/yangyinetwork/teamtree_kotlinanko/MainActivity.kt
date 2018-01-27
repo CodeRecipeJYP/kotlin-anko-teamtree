@@ -8,6 +8,7 @@ import android.widget.TextView
 import com.asuscomm.yangyinetwork.teamtree_kotlinanko.solitaire.GameModel
 import com.asuscomm.yangyinetwork.teamtree_kotlinanko.solitaire.GameView
 import org.jetbrains.anko.*
+import org.jetbrains.anko.custom.ankoView
 import org.jetbrains.anko.custom.style
 
 
@@ -32,6 +33,8 @@ class MainActivity : AppCompatActivity(), GameView {
 
 
             linearLayout {
+                // Fails. Calling ankoView needed
+                DeckView(context)
                 imageView(imageResource = cardBackDrawable).lparams(width = cardWidth, height = cardHeight)
                 imageView(imageResource = emptyPileDrawable).lparams(width = cardWidth, height = cardHeight)
                 view().lparams(cardWidth, 0)
