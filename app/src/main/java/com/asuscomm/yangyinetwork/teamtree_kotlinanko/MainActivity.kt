@@ -17,6 +17,14 @@ class MainActivity : AppCompatActivity() {
         val cardHeight:Int = (cardWidth * (190f / 140)).toInt()
 
         verticalLayout {
+            leftPadding = dip(4)
+            rightPadding = dip(4)
+            // Compatible
+//            setPadding(dip(4), 0, dip(4), 0)
+            // Fails because paddingLeft is "val"
+//            paddingLeft = dip(4)
+
+
             // LinearLayout orientation already set vertical
             linearLayout {
                 imageView(imageResource = R.drawable.cardback_green5).lparams(width = cardWidth, height = cardHeight)
