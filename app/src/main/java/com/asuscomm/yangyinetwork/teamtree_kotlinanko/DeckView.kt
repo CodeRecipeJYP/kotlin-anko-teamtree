@@ -29,7 +29,6 @@ class DeckView(context: Context) : ImageView(context) {
     }
 }
 
-val DECKVIEW_FACTORY = { ctx: Context -> DeckView(ctx) }
 // DeckView.() means extensionfunction of DeckView
 fun ViewManager.deckView(init: DeckView.() -> Unit = {}) =
-        ankoView(DECKVIEW_FACTORY, 0, init)
+        ankoView({ DeckView(it) }, 0, init)
