@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 //            Activity.ankoView <- extension Function
             val button: Button = button { }
 //            1. return this.ankoView(`$$Anko$Factories$Sdk15View`.BUTTON, theme) { init() }
-            // in this scope "this" means ViewManager (== _RelativeLayout)
+            // in this scope "this" means ViewManager (== RelativeLayout)
 //            inline fun <T : View> ViewManager.ankoView(factory: (ctx: Context) -> T, theme: Int, init: T.() -> Unit): T {
 //
 
