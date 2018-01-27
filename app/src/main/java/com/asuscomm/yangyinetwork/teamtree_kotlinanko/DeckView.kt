@@ -1,6 +1,7 @@
 package com.asuscomm.yangyinetwork.teamtree_kotlinanko
 
 import android.content.Context
+import android.util.Log
 import android.view.ViewManager
 import android.widget.ImageView
 import com.asuscomm.yangyinetwork.teamtree_kotlinanko.solitaire.GameModel
@@ -23,6 +24,7 @@ class DeckView(context: Context) : ImageView(context) {
 
     fun update() {
         val cards = GameModel.deck.cardsInDeck
+        Log.d("DeckView", cards.toString())
         imageResource = if (cards.size > 0) cardBackDrawable else emptyPileDrawable
     }
 }
