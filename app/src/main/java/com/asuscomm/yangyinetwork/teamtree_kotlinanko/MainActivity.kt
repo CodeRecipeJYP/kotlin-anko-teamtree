@@ -1,5 +1,6 @@
 package com.asuscomm.yangyinetwork.teamtree_kotlinanko
 
+import android.content.Context
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +20,12 @@ fun View.getResIdForCard(card: Card): Int {
     // We can get context from View.getContext
     return context.resources.getIdentifier(resourceName, "drawable", context.packageName)
 }
+// dip, displaymetrics needs Context
+val Context.cardWidth: Int
+        get() = (displayMetrics.widthPixels - dip(8)) / 7
+val Context.cardHeight:Int
+        get() = (cardWidth * (190f / 140)).toInt()
+
 
 class MainActivity : AppCompatActivity(), GameView {
     var deckView: DeckView? = null
@@ -29,9 +36,6 @@ class MainActivity : AppCompatActivity(), GameView {
 
         GamePresenter.setGameView(this)
         GameModel.resetGame()
-
-        val cardWidth = (displayMetrics.widthPixels - dip(8)) / 7
-        val cardHeight:Int = (cardWidth * (190f / 140)).toInt()
 
         verticalLayout {
             leftPadding = dip(4)
